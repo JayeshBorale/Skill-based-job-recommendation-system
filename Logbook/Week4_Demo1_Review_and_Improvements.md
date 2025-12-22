@@ -1,9 +1,9 @@
 # Week 04 – Demo 1 Review and Improvements
 **Date :** 13/09/2025 
 **Project Name:** Skill-Based Job Recommendation System  
-**Week Duration:** 21 September – 27 September  
-**Guide Meeting:** Yes  
-**Demo Conducted:** Demo 1 (20 September)
+**Week Duration:** 23 august – 13 September  
+**Guide Meeting:** Yes   
+**Demo Conducted:** Demo 1 (13 September)
 
 ---
 
@@ -106,4 +106,4 @@ Demo feedback implemented successfully. Improvements are satisfactory.
 Project can proceed to next phase of development.
 
 **Guide Signature:** ____________________  
-**Date:** ____________________
+**Date:** 13/09/2025
