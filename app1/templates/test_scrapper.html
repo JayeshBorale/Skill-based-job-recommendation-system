@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suggested Jobs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .job {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2196F3;
+            margin-bottom: 5px;
+        }
+        .company {
+            color: #666;
+            font-weight: bold;
+        }
+        .meta {
+            display: flex;
+            gap: 15px;
+            margin: 10px 0;
+            color: #555;
+        }
+        .meta span {
+            background: #e0e0e0;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .skills {
+            margin-top: 10px;
+        }
+        .skill-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 2px 8px;
+            margin: 2px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        .url {
+            font-size: 12px;
+            color: #777;
+            word-break: break-all;
+            margin-top: 10px;
+            border-top: 1px dashed #ddd;
+            padding-top: 10px;
+        }
+        .test-form {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .test-form input {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #4CAF50;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .test-form button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SUGGESTED JOBS </h1>
+        
+       
+        
+        
+        
+        <h2>Results: {{ jobs|length }} jobs found</h2>
+        
+        {% if jobs %}
+            {% for job in jobs %}
+            <div class="job">
+                <div class="title">{{ job.title }}</div>
+                <div class="company">{{ job.company }}</div>
+                
+                <div class="meta">
+                    <span>📍 {{ job.location }}</span>
+                    <span>💼 {{ job.experience }}</span>
+                    <span>💰 {{ job.salary }}</span>
+                    <span>📅 {{ job.posted_date }}</span>
+                </div>
+                
+                <div class="description">
+                    {{ job.description }}
+                </div>
+                
+                {% if job.skills %}
+                <div class="skills">
+                    <strong>Skills:</strong>
+                    {% for skill in job.skills %}
+                    <span class="skill-tag">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                
+                <div class="url">
+                    <strong>URL:</strong> <a href="{{ job.url }}" target="_blank">{{ job.url }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <h3>No jobs found</h3>
+                <p>Check the console for debug information about why no jobs were scraped.</p>
+                <p>Try different skills or locations.</p>
+            </div>
+        {% endif %}
